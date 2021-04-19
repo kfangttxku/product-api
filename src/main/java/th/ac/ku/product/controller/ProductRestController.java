@@ -25,6 +25,11 @@ public class ProductRestController {
         return productRepository.findById(productId).get();
     }
 
+    @GetMapping("/product/{productId}")
+    public List<Product> getAllProductId(@PathVariable int productId) {
+        return productRepository.findByProductId(productId);
+    }
+
     @PostMapping
     public Product create(@RequestBody Product product) {
         Product record = productRepository.save(product);

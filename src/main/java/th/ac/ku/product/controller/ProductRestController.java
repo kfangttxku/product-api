@@ -20,19 +20,19 @@ public class ProductRestController {
         return productRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Product getOne(@PathVariable int id){
-        return productRepository.findById(id).get();
+    @GetMapping("/{productId}")
+    public Product getOne(@PathVariable int productId){
+        return productRepository.findById(productId).get();
     }
 
     @PostMapping
-    public Product create(@RequestBody Product customer) {
-        Product record = productRepository.save(customer);
+    public Product create(@RequestBody Product product) {
+        Product record = productRepository.save(product);
         productRepository.flush();
         return record;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{productId}")
     public Product update(@PathVariable int id, @RequestBody Product product) {
         Product record = productRepository.findById(id).get();
         record.setProductPrice(product.getProductPrice());
@@ -40,10 +40,10 @@ public class ProductRestController {
         return record;
     }
 
-    @DeleteMapping("/{id}")
-    public Product delete(@PathVariable int id) {
-        Product record = productRepository.findById(id).get();
-        productRepository.deleteById(id);
+    @DeleteMapping("/{productId}")
+    public Product delete(@PathVariable int productId) {
+        Product record = productRepository.findById(productId).get();
+        productRepository.deleteById(productId);
         return record;
     }
 

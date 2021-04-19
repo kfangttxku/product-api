@@ -10,7 +10,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
-    private String productName, productUnit;
+    private int productStock;
+    private String productName;
     private double productPrice;
 
     public int getProductId() {
@@ -29,13 +30,9 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getProductUnit() {
-        return productUnit;
-    }
+    public int getProductStock() { return productStock; }
 
-    public void setProductUnit(String productUnit) {
-        this.productUnit = productUnit;
-    }
+    public void setProductStock(int productStock) { this.productStock = productStock; }
 
     public double getProductPrice() {
         return productPrice;
@@ -49,8 +46,8 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "productId=" + productId +
+                ", productStock=" + productStock +
                 ", productName='" + productName + '\'' +
-                ", productUnit='" + productUnit + '\'' +
                 ", productPrice=" + productPrice +
                 '}';
     }

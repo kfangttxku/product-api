@@ -38,9 +38,10 @@ public class ProductRestController {
     }
 
     @PutMapping("/{productId}")
-    public Product update(@PathVariable int id, @RequestBody Product product) {
-        Product record = productRepository.findById(id).get();
+    public Product update(@PathVariable int productId, @RequestBody Product product) {
+        Product record = productRepository.findById(productId).get();
         record.setProductStock(product.getProductStock());
+        record.setProductPrice(product.getProductPrice());
         productRepository.save(record);
         return record;
     }
